@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h1>{{otp}}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="email" id="id_user_name" name="email" value="{{ email }}" placeholder="Enter Email Id">
+            <br>
+            <button type="submit">Send Otp</button>
+        </form>
+    </body>
+</html>

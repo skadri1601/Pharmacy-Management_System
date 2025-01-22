@@ -1,0 +1,105 @@
+
+{% load static %}
+ 
+<body  
+<div id="page-wrapper">
+    <div class="container-fluid">
+            <div style="text-align: center; margin-top: 20px;" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h2 style="text-decoration: underline;">Your-Bill</h2>
+            </div>
+
+<div>
+    {% comment %}
+        {% for store,prods in data.items %}
+        {{ store }}<br><br>
+            {% for pr,rec in prods.items %}
+                {{ pr }}
+                {% for r,v in rec.items %}
+                    {{ r }}
+                    {{ v }}
+                {% endfor %}
+                <br>
+            {% endfor %}
+        {% endfor %}
+    {% endcomment %}
+        
+
+    {% for store,prods in data.items %}
+
+
+    <div 
+        <table style="height: auto; font-size: large; background-color: white; box-shadow: 1px 2px 2px rgb(131, 119, 119); margin-bottom: 20px;" >  
+                <td> Person Name :  {{ store.chemistfname }}</td>
+<br>
+                 <td> Contact :  {{ store.chemistcontactno }}</td>
+<br>                    <td>Email :  {{ store.cid }}</td>
+<br>                    <td>Address :{{ store.chemistaddress }}</td>
+        
+        </table>
+        </div>
+
+         <!-- <div style="margin-left:15%;  width:100%;">
+        <table style="height: auto;" cellspacing="1" cellpadding="10">  
+            <tr>
+                <td style="color: black; height: 20%;font-size:large;font-weight:bolder"><u> Name </u>:</td>
+                <td style="color: black; height: 20%;font-size:large">{{ sperson.StoreName }}</td>
+            </tr>
+            <tr>
+                <td style="color: black; height: 20%;font-size:large"><u>Person Name </u>: {{ sperson.PersonName }}</td>
+            </tr>
+            <tr>
+                <td style="color: black; height: 20%;font-size:large"><u>Contact :</u> {{ sperson.Contact }}</td>
+            </tr>
+            <tr>
+                <td style="color: black; height: 20%;font-size:large"><u>Email :</u> {{ sperson.email }}</td>
+            </tr>
+            <tr>
+                <td style="color: black; height: 20%;font-size:large"><u>Address :</u>{{ sperson.add1 }}</td>
+            </tr>
+            <tr>
+                <td  style="color: black; height: 20%;font-size:large"><u>Date :</u>{{ ddate }}</td>
+                
+            </tr>
+        </table>
+    </div> -->
+
+        <table style="margin-left:15%; width:78%;" class="table" border="1px" >
+            <thead>
+                <tr>
+                    <th>Medicine Name</th>
+                    <th>Medicine Price</th>
+                    <th>Medicine QTY</th>
+                    <th>Medicine Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pr,rec in prods.items %}
+                    <tr>
+                        <td>{{ pr }}</td>
+                        <td>{{ rec.real_price }}</td>
+                        <td>{{ rec.prod_qty }}</td>
+                        <td>{{ rec.prod_price }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3">Total Amount : </td>
+                    <td> {{ grand_tot }} </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    {% if not show %}
+       
+        <div style="margin-left: 50%; background-color: white; padding:5px; margin-top: 10px; width: 110px;">
+             <a style="text-decoration: none;" class="btn btn-info" href="{% url 'user:create_pdf' store.chemistfname %}">System Generated Pdf </a>
+        
+            </div>
+    {% endif %}
+    
+
+{% endfor %}
+
+</div>
+</div>
+</body>

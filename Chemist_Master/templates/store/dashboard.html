@@ -1,0 +1,463 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Medical Facility</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        #banner {
+            background-color: #0b3333;
+            background: url('/static/img/chemist.jpg') no-repeat fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body id="myPage" data-spy="no-scroll" data-target=".navbar" data-offset="60">
+    <!--banner-->
+    <section id="banner" class="banner">
+        <div class="bg-color">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" class="img-responsive" style="width: 140px; margin-top: -16px;"></a> -->
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class=""><a href="#banner">Home</a></li>
+                                <li class="active"><a href="{% url 'chemist:Dashboard' %}">MY-Dashboard</a></li>
+                                <!-- <li class=""><a href="#service">Services</a></li> -->
+
+                                <li class=""><a href="{% url 'chemist:order-medicine' %}">order-medicine</a></li>
+
+                                <li class=""><a href="{% url 'chemist:Uploaded_Medi' %}">Uploaded Medicine</a></li>
+                                <!-- <li class=""><a href="#about">About</a></li> -->
+                                <!-- <li class=""><a href="#testimonial">Testimonial</a></li> -->
+                                <!-- <li class=""><a href="#contact">Contact</a></li> -->
+
+                                <li class=""><a class="" href="{% url 'chemist:logout' %}">Logout</a>
+
+                            </ul>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="banner-info">
+                        <div class="banner-logo text-center">
+                            <!-- <img src="{% static 'img/logo.png' %}" class="img-responsive"> -->
+                        </div>
+                        <div class="banner-text text-center">
+                            <!-- <h1 class="white">Medicine at your desk!!</h1> -->
+
+                        </div>
+                        <div class="overlay-detail text-center">
+                            <a href="#service"><i class="fa fa-angle-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <!-- <center>
+                                gst header after login
+                                <ins class="adsbygoogle" style="display: inline-block; width: 728px; height: 0px;"
+                                    data-ad-client="ca-pub-7485845865785659" data-ad-slot="9888667777"
+                                    data-adsbygoogle-status="done" data-overlap-observer-io="true"><ins
+                                        id="aswift_0_expand"
+                                        style="display: inline-table; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 728px; background-color: transparent;"><ins
+                                            id="aswift_0_anchor"
+                                            style="display: block; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 728px; background-color: transparent; overflow: hidden; transition: opacity 1s cubic-bezier(0.4, 0, 1, 1) 0s, width 0.2s cubic-bezier(0.4, 0, 1, 1) 0.3s, height 0.5s cubic-bezier(0.4, 0, 1, 1) 0s; opacity: 0;"><iframe
+                                                width="728" height="90" frameborder="0" marginwidth="0" marginheight="0"
+                                                vspace="0" hspace="0" allowtransparency="true" scrolling="no"
+                                                allowfullscreen="true"
+                                                 onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" -->
+                        <!-- id="aswift_0" name="aswift_0"
+                                                style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;"></iframe></ins></ins></ins> -->
+
+                        <!-- </center> -->
+                    </div>
+                </div>
+            </div>
+
+
+            <div
+                style="margin:50px; border: 1px double rgb(9, 36, 44) ; border-radius: 8px; box-shadow: 2px 2px 3px rgb(12, 39, 54);">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="pan12 span-md-12 span-sm-12 span-xs-12">
+                            <div class="widget">
+                                <div class="widget-header" style="box-shadow: 2px 2px 3px rgb(12, 39, 54); margin-bottom: 40px;">
+                                    <h3 style="text-align: center;">Entry</h3>
+                                    <div style="display: flex; margin-left: 20px;">
+                                        <h3><a style="text-decoration: none; box-shadow: 1px 2px 2px rgb(10, 40, 58);" href="{% url 'chemist:Dashboard' %}">Refresh</a></h3>
+                                        <h3><a style=" text-decoration: none; margin-left: 15px; box-shadow: 1px 2px 2px rgb(10, 40, 58);" href="{% url 'chemist:order-medicine' %}">order-medicine</a></h3>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+                                    <div id="big_stats" class="cf">
+                                        <div class="table-responsive">
+                                            <table class="table" style="text-align: center;">
+                                                <thead
+                                                    style="box-shadow: 2px 2px 3px rgb(12, 39, 54); padding: 5px; margin-top: 30px; border-top: 2px solid rgb(18, 47, 58);">
+                                                    <tr>
+                                                        <th style="color:black;font-weight: bold;text-align: center;">
+                                                            Sr.No.</th>
+                                                        <th style="color:black;font-weight: bold;text-align: center;">
+                                                            Product Name</th>
+                                                        <th style="color:black;font-weight: bold;text-align: center;">
+                                                            Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for i in acceptedData %}
+                                                    <tr>
+                                                        <td style="text-align: center;">
+                                                            {{ forloop.counter }}
+                                                        </td>
+                                                        <td style="text-align: center;">
+                                                            {{ i.name }}
+                                                        </td>
+
+                                                        <td style="text-align: center;">
+                                                            {{ i.status }}
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div><!-- /widget-content -->
+                            </div><!-- /widget -->
+                        </div><!-- /span6 -->
+                        <div class="span6 span-md-6 span-sm-12 span-xs-12 "
+                            style='box-shadow: 3px 3px 3px rgb(12, 39, 54);  padding: 10px;'>
+                            <div class="widget">
+                                <div class="widget-header"
+                                    style="margin: 20px; text-align: center;box-shadow: 1px  2px 2px 1px rgb(12, 39, 54); padding: 5px;">
+                                    <h3>Account Summary</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <div id="big_stats" class="cf">
+
+                                        <div class="stat" style="display: flex; padding: 5px;">
+                                            <h3 style="margin-left: 10px;">Total Products</h3>
+                                            <a href="{% url 'chemist:ProductListView' %}"
+                                                style="text-decoration: none;">
+                                                <div class="value"
+                                                    style="box-shadow: 2px 2px 3px rgb(12, 39, 54); margin-top: 10px; margin-left: 50px;  padding: 10px;">
+                                                    {{ data }}</div>
+                                            </a>
+                                        </div>
+
+                                            <div class="widget-header"  style=" display :flex; padding: 5px; padding-left: 20px;">
+                                                <h3>Total Bills = </h3>
+                                                <h3 style="box-shadow: 2px 2px 3px rgb(12, 39, 54); margin-left: 50px;"> {{ Bcount }}</h3>
+                                            </div>
+                                                <div class="widget-content" style="margin-left: 50px;">
+                                                    <div id="big_stats" class="cf">
+                                                        <div class="stat"><a href="#" >
+                                                            {% for i in bset %}
+                                                            <a href="{% url 'chemist:SK_View_Bills' i %}"> <span style="text-decoration: underline;"
+                                                                class="value">{{ i }}</span> </a> <br>
+                                                                {% endfor %}
+                                                                
+                                                            </a>
+                                                       </div>
+                                                       view your bill 
+                                                    </div>
+                                                </div>
+                                            </div><!-- /widget-content -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /widget-content -->
+                        </div><!-- /widget -->
+                    </div><!-- /span6 -->
+                    <!-- <div class="pan6 span-md-6 span-sm-12 span-xs-12">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <h3>Total Quantity - {{ date }}</h3>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div> -->
+
+                    <!-- <div class="widget">
+                                    <div class="widget-header">
+                                        <h3>Total Bills</h3>
+                                    </div>
+                                    <div class="widget-content">
+                                        <div id="big_stats" class="cf">
+                                            <div class="stat"><a href="#"> 
+                                                <h3>Total Bills = {{ Bcount }}</h3>
+                                                {% for i in bset %}
+                                                <a href="{% url 'chemist:SK_View_Bills' i %}"> <span class="value">{{ i }}</span> </a> <br>
+                                                {% endfor %}
+                                                
+                                                </a>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    /widget-content
+                                </div> -->
+                    <!-- /widget -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+    <!-- service
+  <section id="service" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4">
+          <h2 class="ser-title">Our Service</h2>
+          <hr class="botm-line">
+          <p >User can see the location of chemist store where the medicines are available,User can see the details of medicine with categories and drug-name.
+The user gets a doctor's reference.
+</p>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="service-info">
+            <div class="icon">
+              <i class="fa fa-stethoscope"></i>
+            </div>
+            <div class="icon-info">
+              <h4>24 Hour Support</h4>
+              <p >User can see the details of medicine 24 hours,<br>The user gets a doctor's reference,User can find the medicine in medical store 24 hours. </p>
+            </div>
+          </div>
+          <div class="service-info">
+            <div class="icon">
+              <i class="fa fa-ambulance"></i>
+            </div>
+            <div class="icon-info">
+              <h4>Emergency Services</h4>
+              <p >In the case of emergency user can find medicine quickly and get the Doctor reference.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="service-info">
+            <div class="icon">
+              <i class="fa fa-user-md"></i>
+            </div>
+            <div class="icon-info">
+              <h4>Medical Counseling</h4>
+              <p>User can see the details of medicine with categories and drug-name and know about the use of medicine.
+The user gets a doctor's reference.</p>
+            </div>
+          </div>
+         
+      </div>
+    </div>
+  </section>
+  / service
+ 
+  about
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="section-title">
+            <h2 class="head-title lg-line">The Medilap <br>Ultimate Dream</h2>
+            <hr class="botm-line">
+            <p class="sec-para"  >To promote awareness of healthcare among all section of indian people.</p>
+            <a href="" style="color: #0cb8b6; padding-top:10px;">Know more..</a>
+          </div>
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <div style="visibility: visible;" class="col-sm-9 more-features-box">
+            <div class="more-features-box-text">
+              <div class="more-features-box-text-icon"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+              <div class="more-features-box-text-description">
+                <h3>AIM 1</h3>
+                <p >To promote awareness among functionaries involved in Health and Hospital Management. To promote research in the field of Health and Hospital Management.</p>
+              </div>
+            </div>
+            <div class="more-features-box-text">
+              <div class="more-features-box-text-icon"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+              <div class="more-features-box-text-description">
+                <h3>AIM 2</h3>
+                <p>Making health facility safe in emergency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   doctor team
+
+  testimonial-->
+    <!--cta 2
+  <section id="cta-2" class="section-padding">
+    <div class="container">
+      <div class=" row">
+        <div class="col-md-2"></div>
+        <div class="text-right-md col-md-4 col-sm-4">
+          <h2 class="section-title white lg-line">« A few words<br> about us »</h2>
+        </div>
+        <div class="col-md-4 col-sm-5">
+          Driven by creativity and innovation, we strive for excellence and to make a difference in the world of pharmaceuticals and healthcare.
+           <p class="text-right text-primary"><i>— Uphar Healthcare</i></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </section>
+  cta
+  contact-
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="ser-title">Contact us</h2>
+          <hr class="botm-line">
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <h3>Contact Info</h3>
+          <div class="space"></div>
+          <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>321, Paldi<br> Ahmedabad, India </p>
+          <div class="space"></div>
+          <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>uphar@gmail.com</p>
+          <div class="space"></div>
+          <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+91 9862357352</p>
+        </div>
+        <div class="col-md-8 col-sm-8 marb20">
+          <div class="contact-info">
+            <h3 class="cnt-ttl">Having Any Query!</h3>
+            <div class="space"></div>
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validation"></div>
+              </div>
+
+              <div class="form-action">
+                <button type="submit" class="btn btn-form">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+    <!--/ contact-->
+    <!--footer-->
+    <footer id="footer">
+        <div class="top-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 marb20">
+                        <div class="ftr-tle">
+                            <h4 class="white no-padding">About Us</h4>
+                        </div>
+                        <div class="info-sec">
+                            <p> Driven by creativity and innovation, we strive for excellence and to make a difference
+                                in the world of pharmaceuticals and healthcare.
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 marb20">
+                        <div class="ftr-tle">
+                            <h4 class="white no-padding">Quick Links</h4>
+                        </div>
+                        <div class="info-sec">
+                            <ul class="quick-info">
+                                <li><a href="#"><i class="fa fa-circle"></i>Home</a></li>
+                                <li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
+                                <li><a href="#contact"><i class="fa fa-circle"></i>Query</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 marb20">
+                        <div class="ftr-tle">
+                            <h4 class="white no-padding">Follow us</h4>
+                        </div>
+                        <div class="info-sec">
+                            <ul class="social-icon">
+                                <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
+                                <li class="bgred"><i class="fa fa-google-plus"></i></li>
+                                <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
+                                <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!--/ footer-->
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'contactform/contactform.js' %}"></script>
+
+</body>
+
+</html>

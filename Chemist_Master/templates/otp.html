@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="number" id="id_otp" name="otp" value="{{ otp }}" placeholder="Enter OTP">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,84 @@
+{% load static %}
+<html>
+                <head>
+                
+                        <link rel="stylesheet" type="text/css" href="{% static 'css/register1.css' %}">
+        
+                </head>
+    <body>
+            <form  method="POST" class="box">
+                {% csrf_token %}
+                
+                
+                    <div class="login-wrap">
+                        <div class="login-html">
+   
+                               <center> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">SIGN UP</label></center>
+                                
+                                <div class="login-form">
+
+                                        <div class="sign-up-html">
+                                                <div class="group">
+                                                       
+                                                        <label for="user" type="Email" class="label">Email</label>
+                                                        <input id="id_uid" type="text" name="uid" class="input" value="{{ uid }}" style="color: cornsilk;" >
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" type="password" class="label" data-type="password">Password</label>
+                                                        <input id="id_userpwd" type="password" name="userpwd" class="input" value="{{ userpwd }}">
+                                                        
+                                                </div>
+
+                                                <div class="group">
+                                                        <label for="pass" type="text" class="label" data-type="password">Password hint</label>
+                                                        <input id="id_userpwd" type="text" name="forgot_pass" class="input" value="{{ forgot_pass }}">
+                                                        
+                                                </div>
+
+                                                <div class="group">
+                                                        <label for="pass" class="label">First Name</label>
+                                                        <input id="id_userfname" type="text" name="userfname" class="input" value="{{ userfname }}">
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" class="label">Middle Name</label>
+                                                        <input id="id_usermname" type="text" name="usermname" class="input" value="{{ usermname }}">
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" class="label">Last Name</label>
+                                                        <input id="id_userlname" type="text" name="userlname" class="input" value="{{ userlname }}">
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" class="label">Address</label>
+                                                        <input id="id_useraddress" type="text" name="useraddress" class="input" value="{{ useraddress }}">
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" class="label">City</label>
+                                                        <input id="id_usercity" type="text" name="usercity" class="input" value="{{ usercity }}">
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" class="label">Area</label>
+                                                        <input id="id_userarea" type="text" name="userarea" class="input" value="{{ userarea }}">
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" class="label">Pincode</label>
+                                                        <input id="id_userpincode" type="text" name="userpincode" class="input" value="{{ userpincode }}">
+                                                </div>
+                                                <div class="group">
+                                                        <label for="pass" class="label">Contact_No</label>
+                                                        <input id="id_usercontactno" type="text" name="usercontactno" class="input" value="{{ usercontactno }}">
+                                                </div>
+                                                <div class="group">
+                                                        <input type="submit" class="button" value="Sign Up" href="{% url 'user:signin' %}" style="border: 2px solid #2ecc71;">
+                                                </div>
+                                                <div class="hr"></div>
+                                                <div class="foot-lnk">
+                                                        <label for="tab-1"><a href="{% url 'user:signin' %}" style="color: teal;">Already Member?</a>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>     
+        
+            </form>
+    </body>
+</html>

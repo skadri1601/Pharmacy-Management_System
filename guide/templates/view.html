@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'guide.css' %}">            
+    </head>
+    <body>
+        <table border=3>
+        <th colspan="2">Medicine Details</th>
+<tr><td class="menu"><I>Medicine_Name</I></td><td>{{key.mname}}</td></tr>
+<tr><td class="menu">Symptoms</td><td>{{key.symptoms}}</td></tr>
+<tr><td class="menu">Diseases</td><td>{{key.diseases}}</td></tr>
+<tr><td class="menu">Type</td><td>{{ key.category }}</td></tr>
+<tr><td class="menu">Unit</td><td>{{ key.unit }}</td></tr>
+<tr><td class="menu">Unit_price</td><td>{{ key.unit_price }}</td></tr>
+<tr><td class="menu">Package_Unit</td><td>{{ key.package_unit }}</td></tr>
+<tr><td class="menu">Package_price</td><td>{{ key.package_price }}</td></tr>
+<tr><td class="menu">Drug_Name</td><td>{{ key.drug }}</td></tr>
+<tr><td class="menu">per_unit</td><td>{{ key.per_unit }}</td></tr>
+<tr><td class="menu">Indication</td><td>{{ key.indication }}</td></tr>
+<tr><td class="menu">Contraindication</td><td>{{ key.contraindication }}</td></tr>
+<tr><td class="menu">Caution</td><td>{{ key.caution }}</td></tr>
+<tr><td class="menu">Side-Effect</td><td>{{ key.side_effect }}</td></tr>
+        </table>    
+</body>
+</html>

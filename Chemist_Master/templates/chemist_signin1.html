@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>َLogin</title>
+    <link rel="stylesheet" href="{% static 'signin1.css' %}">
+  </head>
+  <body>
+
+<form class="box"  method="POST">
+  {% csrf_token %}
+  <h1>Chemist Login</h1>
+  <input type="text" name="cid" value="{{ cid }}" placeholder="Email">
+  <input type="password" name="chemistpwd" value="{{ chemistpwd }}" placeholder="Password">
+  <input type="submit" name="" href="/med/show/" value="Sign In">
+
+<br>
+<div class="hr"></div>
+<div class="foot-lnk">
+                    <p style="color: white;">Visit our page?</p><a href="{% url 'user:index' %}" style="color: teal;" >click here </a></div>
+
+
+
+</form>
+</body>
+</html>

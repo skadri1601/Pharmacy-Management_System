@@ -1,0 +1,211 @@
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/box.css' %}">
+        <!-- Boxicons CDN Link -->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    </head>
+<body>
+
+    <body>
+        <div class="sidebar">
+          <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">Lakers Pharmacy</span>
+          </div>
+            <ul class="nav-links">
+              
+              <li>
+                <a href="{% url 'user:adminDashboard' %}" class="active">
+                  <i class='bx bx-grid-alt' ></i>
+                  <span class="links_name">Dashboard</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'user:viewstock' %}">
+                  <i class='bx bx-box' ></i>
+                  <span class="links_name">View Stock</span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="{% url 'user:confirm_order' %}">
+                  <i class='bx bx-box' ></i>
+                  <span class="links_name">order-list</span>
+                </a>
+              </li>
+              
+      
+              <li>
+                <a href="{% url 'user:createGraph' %}">
+                  <i class='bx bx-box' ></i>
+                  <span class="links_name">Prediction</span>
+                </a>
+              </li>
+              <li class="log_out">
+                <a href="{% url 'user:logout' %}">
+                  <i class='bx bx-log-out'></i>
+                  <span class="links_name">Log out</span>
+                </a>
+              </li>
+            </ul>
+        </div>
+        <section class="home-section">
+          <nav>
+            <div class="sidebar-button">
+              <i class='bx bx-menu sidebarBtn'></i>
+              <span class="dashboard">Dashboard</span>
+            </div>
+      
+      
+          </nav>
+      
+          <div class="home-content" style="width:100%; margin-left: 0px; padding-left: 0px;">
+            <!-- <div class="overview-boxes">
+              
+            </div> -->
+            <div class="container-fluid">
+              <div class="card p-3">  
+                <div class="title text-center display-4 pt-3 pb-3">Available Stocks</div>
+                <div class="sales-details">
+                  
+                
+                  <table class="table table-striped" style="width: 100%;" border="1px">
+                    <thead>
+                        <tr>
+                            <!-- <th>#</th> -->
+                            <th align="center" style="color:black; font-weight: bold;">Stock Name</th>
+                            <!-- <th>shopkeeper Name</th> -->
+                            <th align="center" style="color:black; font-weight: bold;">Quantity</th>
+                            <th align="center" style="color:black; font-weight: bold;">Price</th>
+                            <th align="center" style="color:black; font-weight: bold;">Action</th>
+                            
+                            <!-- <th>Action</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                        <tr>
+                            <!-- <td>{{ i.id }}</td> -->
+                            <td class="txt-oflo">{{ i.productName }}</td>
+                            <td>{{ i.quantity }}</td>
+                            <td>{{ i.price }}</td>
+                            <td><a href="{% url 'user:editstock' i.id %}">Edit</a></td>
+                            <!-- <td>{{ i.email }}</td> -->
+                        
+                            <!-- <td><a href = "/storedelete/{{ i.id }}">Delete</a> <a href = "/storeview/{{ i.id }}">View</a> <a href = "/storeedit/{{ i.id }}">Edit</a></td> -->
+                        </tr>
+                    {% endfor %}
+        
+                    </tbody>
+                </table>
+            
+                  <!-- <a href="#">See All</a> -->
+                </div>
+              </div>
+            </center>
+              
+        </section>
+
+      
+        <script>
+         let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if(sidebar.classList.contains("active")){
+        sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+      }else
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+       </script>
+      
+      </body>
+      
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">View stock </h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'user:adminDashboard' %}">Dashboard</a></li>
+                    <li class="active"> View Stock </li>
+                </ol>
+            </div>
+        </div>
+<div class="table-responsive">
+    
+    <div class="container">
+        <table class="table" style=" margin-top:5%;">
+            <thead>
+                <tr>
+                    <!-- <th>#</th> -->
+                    <th align="center" style="color:black; font-weight: bold;">Stock Name</th>
+                    <!-- <th>shopkeeper Name</th> -->
+                    <th align="center" style="color:black; font-weight: bold;">Quantity</th>
+                    <th align="center" style="color:black; font-weight: bold;">Price</th>
+                    <th align="center" style="color:black; font-weight: bold;">Action</th>
+                    
+                    <!-- <th>Action</th> -->
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+                <tr>
+                    <!-- <td>{{ i.id }}</td> -->
+                    <td class="txt-oflo">{{ i.productName }}</td>
+                    <td>{{ i.quantity }}</td>
+                    <td>{{ i.price }}</td>
+                    <td><a href="{% url 'user:editstock' i.id %}">Edit</a></td>
+                    <!-- <td>{{ i.email }}</td> -->
+                
+                    <!-- <td><a href = "/storedelete/{{ i.id }}">Delete</a> <a href = "/storeview/{{ i.id }}">View</a> <a href = "/storeedit/{{ i.id }}">Edit</a></td> -->
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+</div>
+</body>
+</html>

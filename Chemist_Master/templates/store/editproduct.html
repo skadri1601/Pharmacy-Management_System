@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: rgb(16, 71, 71);">
+  
+  <center>
+      <h1 style="color: white; text-decoration: underline;">Edit Product</h1><br>
+  <form method="POST" style="box-shadow: 1px 2px 1px rgb(223, 245, 245);" onsubmit="alert('Product Edit successfully');">
+      {% csrf_token %}
+      <div class="form-group" >
+        
+        <input type="text" placeholder="Enter Product Name" class="form-control" name="productname" id="id_productname" style="width: 40%; padding: 5px; height:30px;" value="{{ data.productname }}">
+      </div>
+      <br>
+      <div class="form-group">
+        
+        <input type="number" placeholder="Enter Product Quantity" class="form-control" name="productquantity" id="id_productquantity" style="width: 40%; padding: 5px; height:40px;" value="{{ data.productquantity }}">
+      </div>
+      <br>
+      <button  type="submit"  style="padding: 5px;" class="btn btn-success">Edit Product</button>
+    </form> </center>
+
+</body>  
+</html>
+
+
+
+

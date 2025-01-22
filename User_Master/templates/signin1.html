@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>َLogin</title>
+    <link rel="stylesheet" href="{% static 'signin1.css' %}">
+  </head>
+  <body>
+
+<form class="box"  method="POST">
+  {% csrf_token %}
+  <h1>Supplier Login</h1>
+  <input type="text" name="uid" value="{{ uid }}" placeholder="Email">
+  <input type="password" name="userpwd" value="{{ userpwd }}" placeholder="Password">
+  <input type="submit" name="" value="Sign In">
+
+<br>
+<div class="hr"></div>
+<div class="foot-lnk">
+                    <p style="color: white;">Visit our page?</p><a href="{% url 'user:index' %}" style="color: teal;" >click here </a></div>
+<div class="hr"></div>
+
+{% if no_record_check == 0 %}
+  <div class="alert alert-error">
+       <strong>No Record Found</strong>
+   </div>
+{% endif %}
+
+
+
+</form>
+
+
+  </body>
+
+  
+
+  <script type="text/javascript">
+    var no_record_check = {{ no_record_check }};  // no_record_check **must** be an integer
+    if (no_record_check == 0) {
+        alert('No record found');
+    }
+    </script>
+</html>

@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/box.css' %}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">Lakers Pharmacy</span>
+        </div>
+        <ul class="nav-links">
+            
+            <li>
+                <a href="{% url 'user:adminDashboard' %}" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'user:viewstock' %}">
+                  <i class='bx bx-box' ></i>
+                  <span class="links_name">View Stock</span>
+                </a>
+              </li>
+            <li>
+                <a href="{% url 'user:confirm_order' %}">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">order-list</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'user:createGraph' %}">
+                  <i class='bx bx-box' ></i>
+                  <span class="links_name">Prediction</span>
+                </a>
+              </li>
+            
+            <li class="log_out">
+                <a href="{% url 'user:logout' %}">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Dashboard</span>
+            </div>
+
+        </nav>
+        
+        <div class="home-content">
+        <div class="overview-boxes">
+        </div>
+
+                <table style=" width:100%; height: fit-content; margin-left: 0px; text-align: center; box-shadow: 3px 2px 1px rgb(34, 4, 82); background-color: white;">
+                            <thead style="margin: 5px; padding: 10px;">
+                                <tr>
+                                    <th style="text-align: center;font-weight: bold; padding:5px; margin-left:60px;"> Name </th>
+                                    <th style="text-align: center;font-weight: bold; padding:5px; margin-left:60px;"> Quantity </th>
+                                    <th style="text-align: center;font-weight: bold; padding:5px; margin-left:60px;"> Total Medicines </th>
+                                    <th style="text-align: center;font-weight: bold; padding:5px; margin-left:60px;"> Total Price </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody >
+                                {% for i,j in orders.items %}
+
+                                <tr>
+                                    <td>{{ i }}</td>
+                                    <td>{{ j.prod_qty }}</td>
+                                    <td>{{ j.qty }}</td>
+                                    <td>{{ j.prod_price }}</td>
+
+                                    {% if j.show %}
+                                    <td><a href="{% url 'create_pdf' i %}">Bill Data</a></td>
+                                    {% else %}
+                                    <td><a href="{% url 'user:billdata' i %}">Bill Data</a></td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    
+
+        </div>
+    </section>
+
+                        
